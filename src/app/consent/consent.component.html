@@ -1,1 +1,37 @@
-<p>consent works!</p>
+<div class="container mt-5">
+    <div class="row custom-wrapper">
+      <form [formGroup]="consentForm" (ngSubmit)="onSubmit()">
+        <div class="d-grid">
+          <label for="selectBank">Select your Bank</label>
+          <select
+            class="custom-select mb-3"
+            (change)="changeBank($event)"
+            formControlName="selectBank"
+          >
+            <option value="">--select one bank--</option>
+            <option *ngFor="let bank of banks">
+              {{ bank }}
+            </option>
+          </select>
+          <label for="Permissions">Select one or more Permissions</label>
+          <div *ngFor="let permission of permissions">
+            <label>
+                <input type="checkbox" [value]="permission.value">
+                {{permission.name}}
+            </label>
+          </div>
+          <label for="frequency">Frequency per day</label>
+          <input type="number" formControlName="frequencyPerDay">
+          <label for="expiration date">Expiration Date Time</label>
+          <input type="datetime" formControlName="expirationDateTime">
+          <label>
+            <input type="checkbox" formControlName="recurringIndicator">
+            Recurring Indicator
+          </label>
+          <button type="submit" class="btn btn-danger btn-block">
+            Give Consent
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
