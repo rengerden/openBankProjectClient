@@ -1,1 +1,68 @@
-<p>list-consent works!</p>
+<div class="container">
+      <div class="row" *ngIf="apiStandard === 'UKOpenBanking'" >
+          <div class="row" >
+              <h1>Hello <span >{{user.username}}</span></h1>
+
+              current user: <br>
+              email: {{user.email}} <br>
+              username: {{user.username}}  <br>
+              <div>
+                <a class="btn btn-info" th:href="@{/logout}">Logout</a>
+              </div>
+              <br>
+              <br>
+          </div>
+          <div>
+              <button class="btn btn-primary" id="get_accounts">Get accounts via UK Open Banking</button>
+              <div id="account_list">
+                <h1>Account List:</h1>
+                <div>
+                  <code>{{zson}}</code><br>
+                  <button type="button" class="btn btn-outline-secondary" (click)="getDataAccount('detail')">Get Account detail</button>
+                  <button type="button" class="btn btn-outline-secondary" (click)="getDataAccount('balances')">Get Balances</button>
+                  <button type="button" class="btn btn-outline-secondary" (click)="getDataAccount('transactions')">Get Transactions</button>
+                  <div class="account_detail">
+                    <h3>Account Detail:</h3>
+                    <code>{{zson}}</code><br>
+                  </div>
+
+
+                </div>
+
+              </div>
+          </div>
+      </div>
+      <div th:case="'BerlinGroup'" class="row" *ngIf="apiStandard == 'BerlinGroup'">
+          <div class="row">
+              <h1>Hello</h1> <br>
+              Consent-ID: {{consentId}} <br>
+              Status:  {{consentStatus}}  <br>
+              Frequency per day:  {{frequencyPerDay}}  <br>
+              Recurring indicator:  {{recurringIndicator}}  <br>
+              Valid until:  {{validUntil}}  <br>
+              <div>
+                <a class="btn btn-info" th:href="@{/logout}">Create a new consent</a>
+              </div>
+              <br>
+              <br>
+          </div>
+          <div>
+              <button class="btn btn-primary"  id="get_accounts_bg">Get accounts via Berlin Group APIs using Consent-ID</button>
+              <div id="account_list_bg">
+                <h1>Account List:</h1>
+                <div>
+                  <code>{{zson}}</code><br>
+                  <button type="button" class="btn btn-outline-secondary" (click)="getDataAccount('detail')">Get Account detail</button>
+                  <button type="button" class="btn btn-outline-secondary" (click)="getDataAccount('balances')">Get Balances</button>
+                  <button type="button" class="btn btn-outline-secondary" (click)="getDataAccount('transactions')">Get Transactions</button>
+                  <div class="account_detail">
+                    <h3>Account Detail:</h3>
+                    <code>{{zson}}</code><br>
+                  </div>
+
+                </div>
+
+              </div>
+          </div>
+      </div>
+</div>
