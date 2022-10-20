@@ -30,7 +30,7 @@ export class RegisterConsumerComponent implements OnInit {
 
   changeApplicationType(e : any) {
     this.selectedApplicationType?.setValue(
-      e.target.value
+      e.target.value, {onlySelf: true}
     );
   }
 

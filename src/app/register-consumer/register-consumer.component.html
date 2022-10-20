@@ -1,37 +1,37 @@
 
 
-<div class="container mt-5">
-    <h1>
-        Registrar consumidor.
-    </h1>
-    <h4>
-        Por favor rellene todos los campos requeridos sobre su aplicación, para crear su OAuth key y secret.
-    </h4>
+<div class="container mt-5 d-flex justify-content-center">
     <div class="row custom-wrapper">
+        <h1 class="h4">
+            Registrar consumidor.
+        </h1>
+        <p class="text-muted">
+            Por favor rellene todos los campos requeridos sobre su aplicación, para crear su OAuth key y secret.
+        </p>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
             <div class="d-grid">
-                <label for="selectApplicationType">Tipo de Aplicaci&oacute;n</label>
+                <label class="form-label mt-4" for="selectApplicationType">Tipo de Aplicaci&oacute;n</label>
                 <select 
-                    class="custom-select mb-3" 
+                    class="form-select mb-3" 
                     formControlName="selectApplicationType" 
                     id="selectApplicationType"
                     (change)="changeApplicationType($event)"
                 >
-                    <option value="">--- Seleccione el tipo de aplicaci&oacute;n ---</option>
+                    <option value="" disabled selected hidden>--- Seleccione el tipo de aplicaci&oacute;n ---</option>
                     <option *ngFor="let type of applicationTypes">
                         {{ type }}
                     </option>
                 </select>
-                <label for="applicationName">Nombre de la Aplicaci&oacute;n</label>
-                <input type="text" formControlName="applicationName">
-                <label for="redirectUrl">Redireccionar a URL (Opcional)</label>
-                <input type="text" formControlName="redirectUrl">
-                <label for="developerEmail">Email del desarrollador</label>
-                <input type="text" formControlName="developerEmail">
-                <label for="description">Descripci&oacute;n de la aplicaci&oacute;n</label>
-                <input type="text" formControlName="description">
-                <label for="company">Compa&ntilde;ia</label>
-                <input type="text" formControlName="company">
+                <label class="form-label mt-3" for="applicationName">Nombre de la Aplicaci&oacute;n</label>
+                <input class="form-control" type="text" formControlName="applicationName">
+                <label class="form-label mt-3" for="redirectUrl">Redireccionar a URL (Opcional)</label>
+                <input class="form-control" type="text" formControlName="redirectUrl">
+                <label class="form-label mt-3" for="developerEmail">Email del desarrollador</label>
+                <input class="form-control" type="text" formControlName="developerEmail">
+                <label class="form-label mt-3" for="description">Descripci&oacute;n de la aplicaci&oacute;n</label>
+                <input class="form-control" type="text" formControlName="description">
+                <label class="form-label mt-3" for="company">Compa&ntilde;ia</label>
+                <input class="form-control" type="text" formControlName="company">
                 <button type="submit" class="btn btn-primary btn-block mt-5">
                     Registrar Consumidor
                 </button>
