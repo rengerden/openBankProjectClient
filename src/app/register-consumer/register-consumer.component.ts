@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-consumer',
@@ -7,9 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterConsumerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  applicationTypes = ['Confidential', 'Public'];
+
+  registerForm = this.fb.group({
+    selectApplicationType: ['', [Validators.required]],
+    applicationName: ['', [Validators.required]],
+    redirectUrl: [''],
+    developerEmail: ['', [Validators.required, Validators.email]],
+    description: ['', [Validators.required]],
+    company: ['', [Validators.required]]
+  });
+
+  get selectedApplicationType() {
+    return this.registerForm.get('selectApplicationType');
+  }
+
+  changeApplicationType(e : any) {
+    this.selectedApplicationType?.setValue(
+      e.target.value
+    );
+  }
+
+  onSubmit() {
+    console.log('Testing onSubmit');
   }
 
 }
