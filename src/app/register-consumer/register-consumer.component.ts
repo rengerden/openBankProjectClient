@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-consumer',
@@ -24,8 +24,12 @@ export class RegisterConsumerComponent implements OnInit {
     company: ['', [Validators.required]]
   });
 
-  get selectedApplicationType() {
-    return this.registerForm.get('selectApplicationType');
+  get selectedApplicationType(): FormControl {
+    return this.registerForm.get('selectApplicationType') as FormControl;
+  }
+
+  get applicationName(): FormControl {
+    return this.registerForm.get('applicationName') as FormControl;
   }
 
   changeApplicationType(e : any) {
@@ -36,6 +40,8 @@ export class RegisterConsumerComponent implements OnInit {
 
   onSubmit() {
     console.log('Testing onSubmit');
+    this.registerForm.dirty;
+    console.log(this.registerForm);
   }
 
 }

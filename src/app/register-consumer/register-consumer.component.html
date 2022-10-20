@@ -23,18 +23,34 @@
                     </option>
                 </select>
                 <label class="form-label mt-3" for="applicationName">Nombre de la Aplicaci&oacute;n</label>
-                <input class="form-control" type="text" formControlName="applicationName">
+                <input class="form-control" type="text" formControlName="applicationName" id="applicationName" required>
+                <!-- <div *ngIf="applicationName?.invalid && (applicationName?.dirty || applicationName?.touched)" class="alert alert-danger mt-2">
+                    <p *ngIf="applicationName?.errors?.['required']">
+                        El campo nombre de la aplicac&oacute;n es requerido.
+                    </p>
+                </div> -->
                 <label class="form-label mt-3" for="redirectUrl">Redireccionar a URL (Opcional)</label>
                 <input class="form-control" type="text" formControlName="redirectUrl">
                 <label class="form-label mt-3" for="developerEmail">Email del desarrollador</label>
-                <input class="form-control" type="text" formControlName="developerEmail">
+                <input class="form-control" type="text" formControlName="developerEmail" required>
+                <!-- <div class="text-danger" *ngIf="developerEmail.errors?.['required']">
+                    El campo email es requerido.
+                </div>
+                <div class="text-danger" *ngIf="developerEmail.errors?.['required']">
+                    El campo email no es un formato valido.
+                </div> -->
+
                 <label class="form-label mt-3" for="description">Descripci&oacute;n de la aplicaci&oacute;n</label>
-                <input class="form-control" type="text" formControlName="description">
+                <textarea class="form-control" formControlName="description" required name="description" id="description" rows="5"></textarea>
                 <label class="form-label mt-3" for="company">Compa&ntilde;ia</label>
-                <input class="form-control" type="text" formControlName="company">
-                <button type="submit" class="btn btn-primary btn-block mt-5">
+                <input class="form-control" type="text" formControlName="company" required>
+                <button type="submit" class="btn btn-primary btn-block mt-5" [disabled]="registerForm.invalid">
                     Registrar Consumidor
                 </button>
+
+                {{registerForm.invalid}}
+
+
             </div>
         </form>
     </div>
