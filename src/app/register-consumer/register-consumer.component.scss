@@ -1,3 +1,10 @@
 .custom-wrapper {
-    max-width: 30vw;
+    max-width: 80vw;
 }
+
+@media only screen and (min-width: 768px) {
+    .custom-wrapper {
+        max-width: 40vw;
+    }
+}
+
