@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { RegisterConsumerService } from './register-consumer-service/register-cosumer.service';
+import { Consumer } from './consumer';
 
 @Component({
   selector: 'app-register-consumer',
@@ -8,7 +10,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 })
 export class RegisterConsumerComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private registerConsumerService : RegisterConsumerService) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +33,7 @@ export class RegisterConsumerComponent implements OnInit {
   get applicationName(): FormControl {
     return this.registerForm.get('applicationName') as FormControl;
   }
+  
 
   get developerEmail(): FormControl {
     return this.registerForm.get('developerEmail') as FormControl;
@@ -52,9 +55,22 @@ export class RegisterConsumerComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Testing onSubmit');
-    this.registerForm.dirty;
-    console.log(this.registerForm);
+
+    const consumer: Consumer = {
+      consumerId: '864bd89e-19d0-448e-b2b4-156c72eecb8f',
+      applicationType: this.selectedApplicationType.value,
+      applicationName: this.applicationName.value,
+      redirectUrl: this.registerForm.get('redirectUrl')!.value ? this.registerForm.get('redirectUrl')!.value! : 'No se asignó URL',
+      developerEmail: this.developerEmail.value,
+      description: this.description.value,
+      company: this.company.value,
+      clientCertificate: 'None',
+      consumerKey: '1xbnf03etvp1bfjaahnurlmoirkpehpsuqe3ntpeqs9',
+      consumerSecret: '4moirkpehpsuqe3ntpeqs1xbnf03etvp1bfjaahnurl'
+    }
+
+    this.registerConsumerService.addDataToConsumer(consumer);
+
   }
 
 }
