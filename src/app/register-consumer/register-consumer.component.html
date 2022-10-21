@@ -8,6 +8,9 @@
         <p class="text-muted">
             Por favor rellene todos los campos requeridos sobre su aplicación, para crear su OAuth key y secret.
         </p>
+        <small class="text-muted">
+            Todos los campos son requeridos a menos que estén marcados como 'opcional'.
+        </small>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
             <div class="d-grid">
                 <label class="form-label mt-4" for="selectApplicationType">Tipo de Aplicaci&oacute;n</label>
@@ -24,33 +27,30 @@
                 </select>
                 <label class="form-label mt-3" for="applicationName">Nombre de la Aplicaci&oacute;n</label>
                 <input class="form-control" type="text" formControlName="applicationName" id="applicationName" required>
-                <!-- <div *ngIf="applicationName?.invalid && (applicationName?.dirty || applicationName?.touched)" class="alert alert-danger mt-2">
-                    <p *ngIf="applicationName?.errors?.['required']">
-                        El campo nombre de la aplicac&oacute;n es requerido.
-                    </p>
-                </div> -->
+                <app-form-error-container [forControl]="applicationName">
+                    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+                </app-form-error-container>
                 <label class="form-label mt-3" for="redirectUrl">Redireccionar a URL (Opcional)</label>
                 <input class="form-control" type="text" formControlName="redirectUrl">
                 <label class="form-label mt-3" for="developerEmail">Email del desarrollador</label>
                 <input class="form-control" type="text" formControlName="developerEmail" required>
-                <!-- <div class="text-danger" *ngIf="developerEmail.errors?.['required']">
-                    El campo email es requerido.
-                </div>
-                <div class="text-danger" *ngIf="developerEmail.errors?.['required']">
-                    El campo email no es un formato valido.
-                </div> -->
-
+                <app-form-error-container [forControl]="developerEmail">
+                    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+                    <app-form-error-msg forErrorCode="email"></app-form-error-msg>
+                </app-form-error-container>
                 <label class="form-label mt-3" for="description">Descripci&oacute;n de la aplicaci&oacute;n</label>
                 <textarea class="form-control" formControlName="description" required name="description" id="description" rows="5"></textarea>
+                <app-form-error-container [forControl]="description">
+                    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+                </app-form-error-container>
                 <label class="form-label mt-3" for="company">Compa&ntilde;ia</label>
                 <input class="form-control" type="text" formControlName="company" required>
+                <app-form-error-container [forControl]="company">
+                    <app-form-error-msg forErrorCode="required"></app-form-error-msg>
+                </app-form-error-container>
                 <button type="submit" class="btn btn-primary btn-block mt-5" [disabled]="registerForm.invalid">
                     Registrar Consumidor
                 </button>
-
-                {{registerForm.invalid}}
-
-
             </div>
         </form>
     </div>

@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterConsumerComponent } from './register-consumer/register-consumer.component';
+import { FormExtensionsModule } from './form-extensions/form-extensions.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { RegisterConsumerComponent } from './register-consumer/register-consumer
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    FormExtensionsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

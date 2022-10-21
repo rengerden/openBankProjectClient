@@ -32,6 +32,19 @@ export class RegisterConsumerComponent implements OnInit {
     return this.registerForm.get('applicationName') as FormControl;
   }
 
+  get developerEmail(): FormControl {
+    return this.registerForm.get('developerEmail') as FormControl;
+  }
+
+  get description(): FormControl {
+    return this.registerForm.get('description') as FormControl;
+  }
+
+
+  get company(): FormControl {
+    return this.registerForm.get('company') as FormControl;
+  }
+
   changeApplicationType(e : any) {
     this.selectedApplicationType?.setValue(
       e.target.value, {onlySelf: true}
