@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { RegisterConsumerService } from './register-consumer-service/register-cosumer.service';
 import { Consumer } from './consumer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-consumer',
@@ -10,7 +11,7 @@ import { Consumer } from './consumer';
 })
 export class RegisterConsumerComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private registerConsumerService : RegisterConsumerService) { }
+  constructor(private fb: FormBuilder, private registerConsumerService : RegisterConsumerService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -70,6 +71,8 @@ export class RegisterConsumerComponent implements OnInit {
     }
 
     this.registerConsumerService.addDataToConsumer(consumer);
+
+    this.router.navigate(['generateFile']);
 
   }
 
