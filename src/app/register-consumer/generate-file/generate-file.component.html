@@ -1,0 +1,65 @@
+<div class="container d-flex justify-content-center">
+    <div>
+        <div class="row custom-wrapper" >
+            <h1 class="h4">
+                Registrar consumidor.
+            </h1>
+            <p class="text-muted">
+                Gracias por registrar al consumidor. Aquí está su información de desarrollador. Por favor guárdela en un lugar seguro.
+            </p>
+            <small class="text-muted">
+                Por favor guárdela en un lugar seguro.
+            </small>
+
+            <div id="pdfTable" #pdfTable>
+  
+                <table  class="table"  *ngIf="(consumer$ | async) as consumer">
+                    <tbody>
+                    <tr>
+                        <td class="fw-bold">Consumer ID</td>
+                        <td>{{consumer.consumerId}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Tipo de Applicación</td>
+                        <td>{{consumer.applicationType}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Nombre de la Applicación</td>
+                        <td>{{consumer.applicationName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">URL de redirección</td>
+                        <td>{{consumer.redirectUrl}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Email del desarrollador</td>
+                        <td>{{consumer.developerEmail}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Descripción de la app</td>
+                        <td>{{consumer.description}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Certificado del cliente</td>
+                        <td>{{consumer.clientCertificate}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Nombre de la Applicación</td>
+                        <td>{{consumer.applicationName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Key consumidor</td>
+                        <td>{{consumer.consumerKey}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Secret consumidor</td>
+                        <td>{{consumer.consumerSecret}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-primary" (click)="downloadAsPDF();">Exportar a PDF</button>
+        </div>
+
+    </div>
+  </div>
