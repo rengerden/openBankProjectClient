@@ -7,12 +7,15 @@ import { AppComponent } from './app.component';
 import { RegisterConsumerComponent } from './register-consumer/register-consumer.component';
 import { FormExtensionsModule } from './form-extensions/form-extensions.module';
 import { GenerateFileComponent } from './register-consumer/generate-file/generate-file.component';
+import { HeaderComponent } from './header/header.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterConsumerComponent,
-    GenerateFileComponent
+    GenerateFileComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
