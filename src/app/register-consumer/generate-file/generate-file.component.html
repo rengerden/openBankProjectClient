@@ -15,10 +15,10 @@
   
                 <table  class="table"  *ngIf="(consumer$ | async) as consumer">
                     <tbody>
-                    <tr>
+                    <!-- <tr>
                         <td class="fw-bold">Consumer ID</td>
                         <td>{{consumer.consumerId}}</td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td class="fw-bold">Tipo de Applicación</td>
                         <td>{{consumer.applicationType}}</td>
@@ -37,24 +37,24 @@
                     </tr>
                     <tr>
                         <td class="fw-bold">Descripción de la app</td>
-                        <td>{{consumer.description}}</td>
+                        <td>{{consumer.applicationDescription}}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td class="fw-bold">Certificado del cliente</td>
                         <td>{{consumer.clientCertificate}}</td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td class="fw-bold">Nombre de la Applicación</td>
                         <td>{{consumer.applicationName}}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td class="fw-bold">Key consumidor</td>
                         <td>{{consumer.consumerKey}}</td>
                     </tr>
                     <tr>
                         <td class="fw-bold">Secret consumidor</td>
                         <td>{{consumer.consumerSecret}}</td>
-                    </tr>
+                    </tr> -->
                     </tbody>
                 </table>
             </div>

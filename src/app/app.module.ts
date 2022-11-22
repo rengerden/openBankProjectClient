@@ -8,6 +8,7 @@ import { RegisterConsumerComponent } from './register-consumer/register-consumer
 import { FormExtensionsModule } from './form-extensions/form-extensions.module';
 import { GenerateFileComponent } from './register-consumer/generate-file/generate-file.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    FormExtensionsModule
+    FormExtensionsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

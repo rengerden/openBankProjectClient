@@ -1,29 +1,50 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { Consumer } from "../consumer";
+import { BehaviorSubject, Observable } from "rxjs";
+import { Consumer, ConsumerResponse } from "../consumer";
 
 @Injectable({
     providedIn: 'root'
 })
 export class RegisterConsumerService {
+
+    constructor( private http: HttpClient) { }
+
     private consumer = new BehaviorSubject<Consumer>(
         {
-            consumerId: '',
             applicationType: '',
             applicationName: '',
             redirectUrl: '',
             developerEmail: '',
-            description:'',
-            company:'',
-            clientCertificate: '',
-            consumerKey: '',
-            consumerSecret: ''
+            applicationDescription:'',
+            company:''
         }
     );
+
+    private consumerResponse = new BehaviorSubject<ConsumerResponse>({
+        consumerId: '',
+        applicationType: '',
+        applicationName: '',
+        redirectUrl: '',
+        developerEmail: '',
+        applicationDescription: '',
+        clientCertificate: '',
+        consumerKey: '',
+        consumerSecret: '',
+        oauth2ClientId: '',
+        oatuh2Redirect: '',
+        oauth2CllientScope: '',
+        oauth2JwsAlg: '',
+        oauth2JwsPk: '',
+    });
 
     consumer$ = this.consumer.asObservable();
 
     addDataToConsumer(consumer: Consumer) {
         this.consumer.next(consumer);
+    }
+
+    createConsumer(consumer: Consumer): Observable<ConsumerResponse> {
+        return this.http.post<ConsumerResponse>('http://localhost:9098/api/v1/nova/open/banking/consumer', consumer);
     }
 };

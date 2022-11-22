@@ -1,9 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { RegisterConsumerService } from '../register-consumer-service/register-cosumer.service';
 
 
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import { ConsumerResponse } from '../consumer';
 const htmlToPdfmake = require("html-to-pdfmake");
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
@@ -14,6 +15,8 @@ const htmlToPdfmake = require("html-to-pdfmake");
   styleUrls: ['./generate-file.component.scss']
 })
 export class GenerateFileComponent {
+
+  @Input() consumerResponse!: ConsumerResponse;
 
   constructor(private registerConsumerService : RegisterConsumerService) { }
 

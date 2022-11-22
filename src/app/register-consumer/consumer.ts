@@ -1,12 +1,29 @@
 export interface Consumer {
-    consumerId: string;
+    //consumerId: string;
     applicationType: string;
     applicationName: string;
     redirectUrl: string;
     developerEmail: string;
-    description: string;
+    applicationDescription: string;
     company: string;
-    clientCertificate: string,
-    consumerKey: string,
-    consumerSecret: string,
+    //clientCertificate: string,
+   // consumerKey: string,
+   // consumerSecret: string,
+}
+
+export interface ConsumerResponse {
+    consumerId: string;
+    applicationType: string; 
+    applicationName: string; 
+    redirectUrl: string; 
+    developerEmail: string; 
+    applicationDescription: string; 
+    clientCertificate: string; 
+    consumerKey: string; 
+    consumerSecret: string; 
+    oauth2ClientId: string; 
+    oatuh2Redirect: string; 
+    oauth2CllientScope: string; 
+    oauth2JwsAlg: string; 
+    oauth2JwsPk: string;
 }
