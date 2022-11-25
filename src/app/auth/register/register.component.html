@@ -45,10 +45,24 @@
           <app-form-error-msg forErrorCode="required"></app-form-error-msg>
         </app-form-error-container>
       </div>
+      <div class="checkbox-control">
+        <a href="/">Términos y condiciones</a>
+        <label for="terms">
+          <input type="checkbox" id="terms" formControlName="termsAndConditions"> 
+          Acepto los términos y condiciones anteriores
+        </label>
+      </div>
+      <div class="checkbox-control mt-4">
+        <a href="/">Política de privacidad</a>
+        <label for="privacyPolicy">
+          <input type="checkbox" id="privacyPolicy" formControlName="privacyPolicy"> 
+          Acepto la política de privacidad anterior
+        </label>
+      </div>
       <button type="submit" class="btn btn-primary w-100 mt-4" [disabled]="form.invalid">
         Registrarse
       </button>
     </form>
-    <span class="text-center mt-4">Ya tiene una cuenta? <a routerLink="/">Iniciar sesión</a></span>
+    <span class="text-center mt-4">¿Ya tiene una cuenta? <a routerLink="/">Iniciar sesión</a></span>
   </div>
 </div>
