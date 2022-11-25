@@ -8,6 +8,8 @@ import { RegisterConsumerComponent } from './register-consumer/register-consumer
 import { FormExtensionsModule } from './form-extensions/form-extensions.module';
 import { GenerateFileComponent } from './register-consumer/generate-file/generate-file.component';
 import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     RegisterConsumerComponent,
     GenerateFileComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
