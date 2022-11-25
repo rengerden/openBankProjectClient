@@ -1,4 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
 .body-background-color {
     background-color: #fafcfd;;
 }
+
+.custom-wrapper {
+    max-width: 80vw;
+}
+
+.ng-touched.ng-invalid:is(input, textarea),
+.ng-dirty.ng-invalid:is(input, textarea) {
+    outline: 2px solid rgb(218, 64, 64);
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    .custom-wrapper {
+        max-width: 40vw;
+    }
+}
+
