@@ -1,0 +1,14 @@
+.forgot-password {
+  color: #000;
+  font-size: .9em;
+
+  &:hover {
+    color: var(--bs-link-color);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .custom-wrapper {
+    max-width: 400px
+  }
+}
