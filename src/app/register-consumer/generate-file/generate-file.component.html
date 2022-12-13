@@ -12,10 +12,10 @@
             </small>
 
             <div id="pdfTable" #pdfTable>
-  
-                <table  class="table"  *ngIf="(consumer$ | async) as consumer">
+
+                <table  class="table"  *ngIf="(consumerResponse$ | async) as consumer">
                     <tbody>
-                    <tr>
+                     <tr>
                         <td class="fw-bold">Consumer ID</td>
                         <td>{{consumer.consumerId}}</td>
                     </tr>
@@ -32,33 +32,50 @@
                         <td>{{consumer.redirectUrl}}</td>
                     </tr>
                     <tr>
-                        <td class="fw-bold">Email del desarrollador</td>
+                        <td class="fw-bold">Correo del desarrollador</td>
                         <td>{{consumer.developerEmail}}</td>
                     </tr>
                     <tr>
                         <td class="fw-bold">Descripción de la app</td>
-                        <td>{{consumer.description}}</td>
+                        <td>{{consumer.applicationDescription}}</td>
                     </tr>
                     <tr>
                         <td class="fw-bold">Certificado del cliente</td>
                         <td>{{consumer.clientCertificate}}</td>
                     </tr>
                     <tr>
-                        <td class="fw-bold">Nombre de la Applicación</td>
-                        <td>{{consumer.applicationName}}</td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold">Key consumidor</td>
+                        <td class="fw-bold">Llave pública del consumidor</td>
                         <td>{{consumer.consumerKey}}</td>
                     </tr>
                     <tr>
-                        <td class="fw-bold">Secret consumidor</td>
+                        <td class="fw-bold">Llave secreta del consumidor</td>
                         <td>{{consumer.consumerSecret}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Id de cliente Oauth2</td>
+                        <td>{{consumer.oauth2ClientId}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Redirección Oauth2</td>
+                        <td>{{consumer.oatuh2Redirect}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Alcance cliente Oauth2</td>
+                        <td>{{consumer.oauth2CllientScope}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Algoritmo Jws Oauth2</td>
+                        <td>{{consumer.oauth2JwsAlg}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Llave privada Jws Oauth2</td>
+                        <div>
+                            <td>{{consumer.oauth2JwsPk}}</td>
+                        </div>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-primary" (click)="downloadAsPDF();">Exportar a PDF</button>
         </div>
 
     </div>
