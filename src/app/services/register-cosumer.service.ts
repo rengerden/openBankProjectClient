@@ -1,16 +1,19 @@
+import { environment } from './../../environments/environment';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable  } from "rxjs";
-import { Consumer, ConsumerResponse  } from "../register-consumer/consumer";
+import { ConsumerRequest, ConsumerResponse  } from "../interfaces/consumer";
 
 @Injectable({
     providedIn: 'root'
 })
 export class RegisterConsumerService {
 
+    private baseUrl: string = environment.consumerApiUrl;
+
     constructor( private http: HttpClient) { }
 
-    private consumer = new BehaviorSubject<Consumer>(
+    private consumer = new BehaviorSubject<ConsumerRequest>(
         {
            applicationType: '',
             applicationName: '',
@@ -41,13 +44,13 @@ export class RegisterConsumerService {
     consumer$ = this.consumer.asObservable();
     consumerResponse$ = this.consumerResponse.asObservable();
 
-    addDataToConsumer(consumer: Consumer) {
+    addDataToConsumer(consumer: ConsumerRequest) {
         this.consumer.next(consumer);
     }
 //.subscribe((resp) => (this.consumerResponse = resp))
-    createConsumer(consumer: Consumer) {
+    createConsumer(consumer: ConsumerRequest) {
          this.http.post<ConsumerResponse>(
-            'http://localhost:9098/api/v1/nova/open/banking/consumer', consumer).subscribe
+            this.baseUrl, consumer).subscribe
             ((resp)=> (this.consumerResponse.next(resp)));
     }
 };

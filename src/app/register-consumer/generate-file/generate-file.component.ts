@@ -1,8 +1,8 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RegisterConsumerService } from '../../services/register-cosumer.service';
 
 
-import { ConsumerResponse } from '../consumer';
+import { ConsumerResponse } from '../../interfaces/consumer';
 
 @Component({
   selector: 'app-generate-file',

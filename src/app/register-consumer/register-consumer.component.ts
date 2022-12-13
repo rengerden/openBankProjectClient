@@ -1,7 +1,8 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { RegisterConsumerService } from '../services/register-cosumer.service';
-import { Consumer, ConsumerResponse } from './consumer';
+import { ConsumerRequest, ConsumerResponse } from '../interfaces/consumer';
 import { Router } from '@angular/router';
 import { GenerateFileComponent } from './generate-file/generate-file.component';
 
@@ -63,7 +64,7 @@ export class RegisterConsumerComponent implements OnInit {
 
 
   onSubmit() {
-    const consumer: Consumer = {
+    const consumer: ConsumerRequest = {
       applicationType: this.selectedApplicationType.value,
       applicationName: this.applicationName.value,
       redirectUrl: this.redirectUrl.value,
