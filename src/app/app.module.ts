@@ -10,7 +10,6 @@ import { FormExtensionsModule } from './form-extensions/form-extensions.module';
 import { GenerateFileComponent } from './register-consumer/generate-file/generate-file.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -19,8 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterConsumerComponent,
     GenerateFileComponent,
     LoginComponent,
-    RegisterComponent,
-    HomeComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

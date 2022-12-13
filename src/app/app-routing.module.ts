@@ -5,7 +5,6 @@ import { RegisterConsumerComponent } from './register-consumer/register-consumer
 import { GenerateFileComponent } from './register-consumer/generate-file/generate-file.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
