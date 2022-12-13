@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,17 +9,12 @@ import { AppComponent } from './app.component';
 import { RegisterConsumerComponent } from './register-consumer/register-consumer.component';
 import { FormExtensionsModule } from './form-extensions/form-extensions.module';
 import { GenerateFileComponent } from './register-consumer/generate-file/generate-file.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterConsumerComponent,
-    GenerateFileComponent,
-    LoginComponent,
-    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormExtensionsModule,
     HttpClientModule,
-    PagesModule
+    PagesModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
