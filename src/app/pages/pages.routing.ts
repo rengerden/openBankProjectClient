@@ -1,15 +1,23 @@
-import { PagesComponent } from './pages.component';
-import { HomeComponent } from './home/home.component';
-import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { PagesComponent } from './pages.component';
+import { RegisterConsumerComponent } from './register-consumer/register-consumer.component';
+
 
 const routes: Routes = [
     {
-        path: 'home',
+        path: 'novaBank',
         component: PagesComponent,
         children: [
-            {path: '',
-        component: HomeComponent}
+            {
+                path: '',
+                component: HomeComponent
+            },
+            {
+                path: 'registerConsumer',
+                component: RegisterConsumerComponent
+            }
         ]
     }
 ]
@@ -19,4 +27,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class PagesRoutingModule {}
+export class PagesRoutingModule { }

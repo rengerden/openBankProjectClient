@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { RegisterConsumerService } from '../../services/register-cosumer.service';
-
-
-import { ConsumerResponse } from '../../interfaces/consumer';
+import { ConsumerResponse } from './../../../interfaces/consumer';
+import { RegisterConsumerService } from './../../../services/register-cosumer.service';
 
 @Component({
   selector: 'app-generate-file',

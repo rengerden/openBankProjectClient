@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  consumerApiUrl: 'http://localhost:9098/api/v1/nova/open/banking/consumer'
+  consumerApiUrl: 'http://localhost:9098/api/v1/nova/open/banking/consumer',
+  userApiUrl: 'http://localhost:8081/api/public/v1/customer/register',
+  authApiUrl: 'http://localhost:8081/api/public/v1/customer/register',
+  accessToken: 'accessToken',
+  refreshToken: 'refreshToken',
 };
 
 /*

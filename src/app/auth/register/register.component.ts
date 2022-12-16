@@ -1,3 +1,5 @@
+import { RegisterUserService } from './../../services/register-user.service';
+import { UserRequest } from './../../interfaces/user';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   form: FormGroup;
-  
-  constructor(private fb: FormBuilder, private router: Router) { 
+
+  constructor(private fb: FormBuilder, private router: Router, private registerUserService: RegisterUserService) {
     this.form = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -42,12 +44,33 @@ export class RegisterComponent {
   get password(): FormControl {
     return this.form.get('password') as FormControl;
   }
-  
+
   get confirmPassword(): FormControl {
     return this.form.get('confirmPassword') as FormControl;
   }
 
+  get termsAndConditions(): FormControl {
+    return this.form.get('termsAndConditions') as FormControl;
+  }
+
+  get privacyPolicy(): FormControl {
+    return this.form.get('privacyPolicy') as FormControl;
+  }
+
   onSubmit(): void {
+    const user: UserRequest = {
+      firstname: this.firstName.value,
+      lastname: this.lastName.value,
+      email: this.email.value,
+      username: this.username.value,
+      password: this.password.value,
+      passwordConfirm: this.confirmPassword.value,
+      termsAndConditions: this.termsAndConditions.value,
+      agreement: this.privacyPolicy.value
+    }
+
+    this.registerUserService.addDataToUser(user);
+    this.registerUserService.createUser(user);
     this.router.navigateByUrl('/')
   }
 }

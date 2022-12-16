@@ -15,7 +15,7 @@ export class RegisterConsumerService {
 
     private consumer = new BehaviorSubject<ConsumerRequest>(
         {
-           applicationType: '',
+            applicationType: '',
             applicationName: '',
             redirectUrl: '',
             developerEmail: '',

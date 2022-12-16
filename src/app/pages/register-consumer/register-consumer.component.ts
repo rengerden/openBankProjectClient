@@ -1,8 +1,8 @@
+import { RegisterConsumerService } from './../../services/register-cosumer.service';
+import { ConsumerResponse, ConsumerRequest } from './../../interfaces/consumer';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { RegisterConsumerService } from '../services/register-cosumer.service';
-import { ConsumerRequest, ConsumerResponse } from '../interfaces/consumer';
 import { Router } from '@angular/router';
 import { GenerateFileComponent } from './generate-file/generate-file.component';
 
